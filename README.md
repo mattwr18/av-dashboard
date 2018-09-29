@@ -17,7 +17,7 @@ First, copy alembic.ini.example as so:
 cp alembic.ini.example alembic.ini
 ```
 
-Then you should edit the part of the file that says:-
+Then you should edit the the newly copied file where it says:-
 
 ```
 [test_db]
@@ -28,7 +28,8 @@ sqlalchemy.url = postgresql://postgres:pw@localhost:5432/av_dashboard_dev
 sqlalchemy.url = postgresql://postgres@localhost/av_dashboard_test
 ```
 
-In the newly copied file, you will want to insert the corresponding password for your database where it has 'pw', and the user where it has 'postgres'.
+You will want to replace 'postgres:pw' with the corresponding 'user:password' for your database.
+
 In the event that your local database is on a different host or port, feel free to change 'localhost:5432'.
 
 Next, you will need to copy the config.py.example file that is in the instance folder:
@@ -46,17 +47,17 @@ POSTGRES_HOST = 'localhost'
 POSTGRES_PORT = '5432'
 ```
 
-Insert the corresponding user, password and possibly host and port for your local database.
+Insert the corresponding user, password and, if configured differently, the host and port for your local database.
 
 Next, copy the test.py.example and dev.py.example in the config folder as so:
 
 ```
 cp config/test.py.example config/test.py
-cp config/dev.py.example
+cp config/dev.py.example config/dev.py
 ```
 
-In most cases, you can just leave these files as they are, but in case you want a special name for your test or dev database, edit it appropriately.  But if you do
-edit this default, also edit in the alembic.ini above.
+In most cases, you can just leave these files as they are, but in case you want a special name for your test or dev database, edit it appropriately.  Keep in mind, if you do
+edit this default; however, you should also edit it in the alembic.ini above.
 
 After you have setup the database configurations above, create the databases like so with your postgresql server already running:-
 
